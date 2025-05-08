@@ -28,11 +28,29 @@ const SideBar = () => {
 
   return (
     <div>
-      <header className="header">
-        <button className="menu-button" aria-label="menu" onClick={toggleSidebar}>
-          {isOpen ? <FaTimes /> : <FiAlignJustify />}
-        </button>
-        <h1 className="logo">Meu Projeto</h1>
+      <header className="my-office-navbar">
+        <div className="my-office-left">
+          <button className="my-office-menu-btn" aria-label="menu" onClick={toggleSidebar}>
+            {isOpen ? <FaTimes /> : <FiAlignJustify />}
+          </button>
+          <span className="my-office-logo">
+            <span className="z">My</span><span className="ap">Office</span>
+          </span>
+          <ul className="my-office-links">
+            <li>Alugar</li>
+            <li>Comprar</li>
+            <li>Lançamentos &#9662;</li>
+            <li>Descobrir</li>
+            <li>Anunciar &#9662;</li>
+            <li>Ajuda</li>
+          </ul>
+        </div>
+        <div className="my-office-right">
+          <button className="my-office-btn-primary">Criar conta</button>
+          <button className="my-office-btn-outline">
+            <span className="icon-user">👤</span> Entrar
+          </button>
+        </div>
       </header>
 
       <div ref={sidebarRef} className={`sidebar ${isOpen ? "open" : ""}`}>
