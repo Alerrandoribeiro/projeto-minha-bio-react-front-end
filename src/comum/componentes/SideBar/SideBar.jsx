@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaTimes } from "react-icons/fa";
 import { FiAlignJustify } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
@@ -46,8 +46,16 @@ const SideBar = () => {
           </ul>
         </div>
         <div className="my-office-right">
-          <button className="my-office-btn-primary">Criar conta</button>
-          <button className="my-office-btn-outline">
+          <button
+            className="my-office-btn-primary"
+            onClick={() => { navigate("/cadastro-login", { state: { isSignUp: true } }); }}
+          >
+            Criar conta
+          </button>
+          <button
+            className="my-office-btn-outline"
+            onClick={() => { navigate("/cadastro-login", { state: { isSignUp: false } }); }}
+          >
             <span className="icon-user">👤</span> Entrar
           </button>
         </div>
@@ -58,7 +66,7 @@ const SideBar = () => {
           <h2>Menu</h2>
         </div>
         <ul className="sidebar-nav">
-          <li onClick={() => { navigate("/cadastro-login"); setIsOpen(false); }} className="nav-item">Entrar</li>
+          <li onClick={() => { navigate("/cadastro-login", { state: { isSignUp: false } }); setIsOpen(false); }} className="nav-item">Entrar</li>
           <li onClick={() => { navigate("/"); setIsOpen(false); }} className="nav-item">Início</li>
           <li onClick={() => { navigate("/perfil"); setIsOpen(false); }} className="nav-item">Perfil</li>
           <li onClick={() => { navigate("/mensagem"); setIsOpen(false); }} className="nav-item">Mensagens</li>
